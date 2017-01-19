@@ -6,11 +6,13 @@
 # Linux:
 # LD_PRELOAD=./log_file_access.o ./my_binary
 
-log_file_accesses.s:
-	# Linux:
-	#gcc -std=c99 -Wall -shared -fPIC log_file_access.c -o log_file_access.so -ldl
-	# Mac OS X:
+all: log_file_accesses.mac log_file_accesses.linux
+
+log_file_accesses.linux:
+	gcc -std=c99 -Wall -shared -fPIC log_file_access.c -o log_file_access.so -ldl
+
+log_file_accesses.mac:
 	gcc -std=c99 -Wall -fPIC -dynamiclib -o log_file_access.dylib -dy log_file_access.c
 
 clean:
-	rm *.so
+	rm -f *.so *.dylib
