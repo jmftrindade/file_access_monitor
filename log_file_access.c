@@ -35,12 +35,19 @@ void log_file_access(const char *method, const char *path) {
         (unsigned long long)(tv.tv_sec) * 1000 +
         (unsigned long long)(tv.tv_usec) / 1000;
 
-    fprintf(fd, "milli_since_epoch=\"%llu\",method=\"%s\",file=\"%s\"\n", milli_since_epoch, method, path);
+    fprintf(fd, "milli_since_epoch=\"%llu\",method=\"%s\",file=\"%s\"\n",
+            milli_since_epoch, method, path);
   } else {
     fprintf(stderr, "Could not open access log file!\n");
   }
 
   fclose(fd);
+}
+
+/** Logs file accesses using a FILE descriptor instead of path. */
+void log_file_access_from_FD(const char *method, FILE *fd) {
+  // TODO: http://stackoverflow.com/questions/11221186/how-do-i-find-a-filename-given-a-file-pointer
+  log_file_access(method, "TODO: extract filename.");
 }
 
 /** Intercept fopen calls. */
@@ -53,6 +60,32 @@ FILE *fopen(const char *path, const char *mode) {
   }
 
   return orig_func(path, mode);
+}
+
+/** Intercept fwrite calls. */
+size_t fwrite(const void *restrict ptr, size_t size, size_t nitems,
+              FILE *restrict stream) {
+  log_file_access_from_FD("fwrite", stream);
+
+  static size_t *(*orig_func)();
+  if (!orig_func) {
+    orig_func = (size_t * (*)())dlsym(RTLD_NEXT, "fwrite");
+  }
+
+  return orig_func(ptr, size, nitems, stream);
+}
+
+/** Intercept fwrite calls. */
+size_t fwrite64(const void *restrict ptr, size_t size, size_t nitems,
+              FILE *restrict stream) {
+  log_file_access_from_FD("fwrite64", stream);
+
+  static size_t *(*orig_func)();
+  if (!orig_func) {
+    orig_func = (size_t * (*)())dlsym(RTLD_NEXT, "fwrite64");
+  }
+
+  return orig_func(ptr, size, nitems, stream);
 }
 
 /** Intercept fopen64 calls. */
@@ -109,4 +142,30 @@ int open64(const char *pathname, int flags, ...) {
 
   return mode == 0 ? orig_func(pathname, flags)
                    : orig_func(pathname, flags, mode);
+}
+
+/** Intercept write calls. */
+// FIXME: Works only for Mac OS X.
+ssize_t write(int fildes, const void *buf, size_t nbytes) {
+  log_file_access("write", "TODO: get filename.");
+
+  static ssize_t (*orig_func)();
+  if (!orig_func) {
+    orig_func = (ssize_t (*)())dlsym(RTLD_NEXT, "write");
+  }
+
+  return orig_func(fildes, buf, nbytes);
+}
+
+/** Intercept write64 calls. */
+// FIXME: Works only for Mac OS X.
+ssize_t write64(int fildes, const void *buf, size_t nbytes) {
+  log_file_access("write64", "TODO: get filename.");
+
+  static ssize_t (*orig_func)();
+  if (!orig_func) {
+    orig_func = (ssize_t (*)())dlsym(RTLD_NEXT, "write64");
+  }
+
+  return orig_func(fildes, buf, nbytes);
 }
