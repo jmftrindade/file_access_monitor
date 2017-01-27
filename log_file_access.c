@@ -46,7 +46,8 @@ void log_file_access(const char *method, const char *path) {
 
 /** Logs file accesses using a FILE descriptor instead of path. */
 void log_file_access_from_FD(const char *method, FILE *fd) {
-  // TODO: http://stackoverflow.com/questions/11221186/how-do-i-find-a-filename-given-a-file-pointer
+  // TODO:
+  // http://stackoverflow.com/questions/11221186/how-do-i-find-a-filename-given-a-file-pointer
   log_file_access(method, "TODO: extract filename.");
 }
 
@@ -57,6 +58,18 @@ FILE *fopen(const char *path, const char *mode) {
   static FILE *(*orig_func)();
   if (!orig_func) {
     orig_func = (FILE * (*)())dlsym(RTLD_NEXT, "fopen");
+  }
+
+  return orig_func(path, mode);
+}
+
+/** Intercept fopen64 calls. */
+FILE *fopen64(const char *path, const char *mode) {
+  log_file_access("fopen64", path);
+
+  static FILE *(*orig_func)();
+  if (!orig_func) {
+    orig_func = (FILE * (*)())dlsym(RTLD_NEXT, "fopen64");
   }
 
   return orig_func(path, mode);
@@ -75,9 +88,9 @@ size_t fwrite(const void *restrict ptr, size_t size, size_t nitems,
   return orig_func(ptr, size, nitems, stream);
 }
 
-/** Intercept fwrite calls. */
+/** Intercept fwrite64 calls. */
 size_t fwrite64(const void *restrict ptr, size_t size, size_t nitems,
-              FILE *restrict stream) {
+                FILE *restrict stream) {
   log_file_access_from_FD("fwrite64", stream);
 
   static size_t *(*orig_func)();
@@ -88,16 +101,30 @@ size_t fwrite64(const void *restrict ptr, size_t size, size_t nitems,
   return orig_func(ptr, size, nitems, stream);
 }
 
-/** Intercept fopen64 calls. */
-FILE *fopen64(const char *path, const char *mode) {
-  log_file_access("fopen64", path);
+/** Intercept fread calls. */
+size_t fread(void *restrict ptr, size_t size, size_t nitems,
+             FILE *restrict stream) {
+  log_file_access_from_FD("fread", stream);
 
-  static FILE *(*orig_func)();
+  static size_t *(*orig_func)();
   if (!orig_func) {
-    orig_func = (FILE * (*)())dlsym(RTLD_NEXT, "fopen64");
+    orig_func = (size_t * (*)())dlsym(RTLD_NEXT, "fread");
   }
 
-  return orig_func(path, mode);
+  return orig_func(ptr, size, nitems, stream);
+}
+
+/** Intercept fread64 calls. */
+size_t fread64(void *restrict ptr, size_t size, size_t nitems,
+               FILE *restrict stream) {
+  log_file_access_from_FD("fread64", stream);
+
+  static size_t *(*orig_func)();
+  if (!orig_func) {
+    orig_func = (size_t * (*)())dlsym(RTLD_NEXT, "fread64");
+  }
+
+  return orig_func(ptr, size, nitems, stream);
 }
 
 /** Intercept open calls. */
@@ -144,6 +171,32 @@ int open64(const char *pathname, int flags, ...) {
                    : orig_func(pathname, flags, mode);
 }
 
+/** Intercept read calls. */
+// FIXME: Works only for Mac OS X.
+ssize_t read(int fildes, void *buf, size_t nbytes) {
+  log_file_access("read", "TODO: get filename.");
+
+  static ssize_t (*orig_func)();
+  if (!orig_func) {
+    orig_func = (ssize_t(*)())dlsym(RTLD_NEXT, "read");
+  }
+
+  return orig_func(fildes, buf, nbytes);
+}
+
+/** Intercept read64 calls. */
+// FIXME: Works only for Mac OS X.
+ssize_t read64(int fildes, void *buf, size_t nbytes) {
+  log_file_access("read64", "TODO: get filename.");
+
+  static ssize_t (*orig_func)();
+  if (!orig_func) {
+    orig_func = (ssize_t(*)())dlsym(RTLD_NEXT, "read64");
+  }
+
+  return orig_func(fildes, buf, nbytes);
+}
+
 /** Intercept write calls. */
 // FIXME: Works only for Mac OS X.
 ssize_t write(int fildes, const void *buf, size_t nbytes) {
@@ -151,7 +204,7 @@ ssize_t write(int fildes, const void *buf, size_t nbytes) {
 
   static ssize_t (*orig_func)();
   if (!orig_func) {
-    orig_func = (ssize_t (*)())dlsym(RTLD_NEXT, "write");
+    orig_func = (ssize_t(*)())dlsym(RTLD_NEXT, "write");
   }
 
   return orig_func(fildes, buf, nbytes);
@@ -164,7 +217,7 @@ ssize_t write64(int fildes, const void *buf, size_t nbytes) {
 
   static ssize_t (*orig_func)();
   if (!orig_func) {
-    orig_func = (ssize_t (*)())dlsym(RTLD_NEXT, "write64");
+    orig_func = (ssize_t(*)())dlsym(RTLD_NEXT, "write64");
   }
 
   return orig_func(fildes, buf, nbytes);
