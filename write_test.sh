@@ -1,6 +1,6 @@
-#!/usr/local/bin/bash
+#!/bin/bash
 
-file=/tmp/data/test.csv
+file=~/test.csv
 
 echo "123" >> $file
 cat $file
