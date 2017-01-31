@@ -9,7 +9,7 @@
 		<include extension=".*\.csv" uid="*" action="write" retname="SUCCESS"/>
 	</includes>
 	<excludes>
-		<!-- Do not log getattr operations -->
-		<!-- exclude extension=".*" uid="*" action="getattr" retname=".*"/ -->
+		<!-- Do not monitor loggedfs.csv output. -->
+		<exclude extension=".*loggedfs\.csv" uid="*" action="*" retname="*"/>
 	</excludes>
 </loggedFS>

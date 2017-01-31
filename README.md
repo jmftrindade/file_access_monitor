@@ -23,3 +23,21 @@ Mac OS X:
 ```
 DYLD_FORCE_FLAT_NAMESPACE=1 DYLD_INSERT_LIBRARIES=./log_file_access.dylib ./write_test.sh
 ```
+
+# Alternative: Using loggedfs instead to monitor file accesses.
+
+1. Install http://github.com/jmftrindade/loggedfs  (Tested on linux; Mac OS X doesn't work because of libfuse incompatibility)
+
+2. Run loggedfs, e.g., monitor all files under home directory:
+
+```
+loggedfs -c loggedfs.xml -l /var/tmp/$USER-home-fs.log ~
+```
+
+Output will be at /var/tmp/$USER-home-fs.log
+
+3. Disable loggedfs, e.g., assuming monitoring was configured to track home directory:
+
+```
+sudo umount -l ~
+```
