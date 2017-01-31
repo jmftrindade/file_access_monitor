@@ -197,6 +197,19 @@ ssize_t read64(int fildes, void *buf, size_t nbytes) {
   return orig_func(fildes, buf, nbytes);
 }
 
+/** Intercept read calls. */
+// FIXME: Works only for Mac OS X.
+ssize_t safe_read(int fildes, void *buf, size_t nbytes) {
+  log_file_access("safe_read", "TODO: get filename.");
+
+  static ssize_t (*orig_func)();
+  if (!orig_func) {
+    orig_func = (ssize_t(*)())dlsym(RTLD_NEXT, "safe_read");
+  }
+
+  return orig_func(fildes, buf, nbytes);
+}
+
 /** Intercept write calls. */
 // FIXME: Works only for Mac OS X.
 ssize_t write(int fildes, const void *buf, size_t nbytes) {

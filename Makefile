@@ -10,9 +10,11 @@ all: log_file_accesses.mac log_file_accesses.linux
 
 log_file_accesses.linux:
 	gcc -std=c99 -Wall -shared -fPIC log_file_access.c -o log_file_access.so -ldl
+	gcc -std=c99 -Wall -shared -fPIC syscall-dump.c -o syscall-dump.so -ldl
 
 log_file_accesses.mac:
 	gcc -std=c99 -Wall -fPIC -dynamiclib -o log_file_access.dylib -dy log_file_access.c
+	gcc -std=c99 -Wall -fPIC -dynamiclib -o syscall-dump.dylib -dy syscall-dump.c
 
 clean:
 	rm -f *.so *.dylib
