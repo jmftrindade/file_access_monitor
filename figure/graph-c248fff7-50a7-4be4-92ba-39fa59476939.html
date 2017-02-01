@@ -1,0 +1,51 @@
+
+    <html>
+    <head>
+      <script type="text/javascript" src="../lib/vis/dist/vis.js"></script>
+      <link href="../lib/vis/dist/vis.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+
+    <div id="c248fff7-50a7-4be4-92ba-39fa59476939"></div>
+
+    <script type="text/javascript">
+      var nodes = [{"id": 33, "group": "Dataset", "title": "{'name': 'test1.csv'}", "label": "test1.csv"}, {"id": 35, "group": "Job", "title": "{'pid': 3792, 'name': 'cp', 'uid': 'cp-3792'}", "label": "cp-3792"}, {"id": 34, "group": "Dataset", "title": "{'name': 'test2.csv'}", "label": "test2.csv"}];
+      var edges = [{"label": "IS_READ_BY", "from": 33, "to": 35}, {"label": "WRITES_TO", "from": 35, "to": 34}];
+
+      var container = document.getElementById("c248fff7-50a7-4be4-92ba-39fa59476939");
+
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+
+      var options = {
+          nodes: {
+              shape: 'dot',
+              size: 25,
+              font: {
+                  size: 14
+              }
+          },
+          edges: {
+              font: {
+                  size: 14,
+                  align: 'middle'
+              },
+              color: 'gray',
+              arrows: {
+                  to: {enabled: true, scaleFactor: 0.5}
+              },
+              smooth: {enabled: false}
+          },
+          physics: {
+              enabled: false
+          }
+      };
+
+      var network = new vis.Network(container, data, options);
+
+    </script>
+    </body>
+    </html>
+    

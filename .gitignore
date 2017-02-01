@@ -1,27 +1,35 @@
-# Object files
+# Python: Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# C++: Object files
 *.o
 *.ko
 *.obj
 *.elf
 *.dylib
 
-# Precompiled Headers
+# C++: Precompiled Headers
 *.gch
 *.pch
 
-# Libraries
+# C++: Libraries
 *.lib
 *.a
 *.la
 *.lo
 
-# Shared objects (inc. Windows DLLs)
+# C++: Shared objects (inc. Windows DLLs)
 *.dll
 *.so
 *.so.*
 *.dylib
 
-# Executables
+# C++: Executables
 *.exe
 *.out
 *.app
@@ -29,6 +37,6 @@
 *.x86_64
 *.hex
 
-# Debug files
+# C++: Debug files
 *.dSYM/
 *.su
