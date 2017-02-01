@@ -6,13 +6,13 @@
     </head>
     <body>
 
-    <div id="c248fff7-50a7-4be4-92ba-39fa59476939"></div>
+    <div id="392570ea-1a7d-4a1f-a5d3-82f8175aef75"></div>
 
     <script type="text/javascript">
-      var nodes = [{"id": 33, "group": "Dataset", "title": "{'name': 'test1.csv'}", "label": "test1.csv"}, {"id": 35, "group": "Job", "title": "{'pid': 3792, 'name': 'cp', 'uid': 'cp-3792'}", "label": "cp-3792"}, {"id": 34, "group": "Dataset", "title": "{'name': 'test2.csv'}", "label": "test2.csv"}];
-      var edges = [{"label": "IS_READ_BY", "from": 33, "to": 35}, {"label": "WRITES_TO", "from": 35, "to": 34}];
+      var nodes = [{"title": "{'uid': 'cp-3792', 'name': 'cp', 'pid': 3792}", "group": "Job", "id": 35, "label": "cp-3792"}, {"title": "{'name': 'test2.csv'}", "group": "Dataset", "id": 34, "label": "test2.csv"}, {"title": "{'name': 'test1.csv'}", "group": "Dataset", "id": 33, "label": "test1.csv"}];
+      var edges = [{"to": 34, "from": 35, "label": "WRITES_TO"}, {"to": 35, "from": 33, "label": "IS_READ_BY"}];
 
-      var container = document.getElementById("c248fff7-50a7-4be4-92ba-39fa59476939");
+      var container = document.getElementById("392570ea-1a7d-4a1f-a5d3-82f8175aef75");
 
       var data = {
         nodes: nodes,
