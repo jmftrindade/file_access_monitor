@@ -27,7 +27,7 @@ sudo umount -l ~
 4. Copy events log to this directory, in case you want to use that for the demo:
 
 ```
-cp /var/tmp/$USER-home-fs.log loggedfs.csv
+cp /var/tmp/$USER-home-fs.log loggedfs_events_log.csv
 ```
 
 # DEPRECATED:
