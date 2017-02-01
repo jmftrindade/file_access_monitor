@@ -1,0 +1,6 @@
+Time,Action,Path,Mode,From,To,To UID,To GID,To User Name,To Group Name,Size,Offset,Result,UID,PID,PPID,Command Line
+1485918018082 ,open-writeonly,/home/lubuntu/test_copy.csv,,,,,,,,,,SUCCESS,1000,3792,3791,cp /home/lubuntu/test.csv /home/lubuntu/test_copy.csv 
+1485918018082 ,read-request,/home/lubuntu/test.csv,,,,,,,,4096,0,SUCCESS,1000,3792,3791,cp /home/lubuntu/test.csv /home/lubuntu/test_copy.csv 
+1485918018082 ,read,/home/lubuntu/test.csv,,,,,,,,96,0,SUCCESS,1000,3792,3791,cp /home/lubuntu/test.csv /home/lubuntu/test_copy.csv 
+1485918018082 ,write-request,/home/lubuntu/test_copy.csv,,,,,,,,96,0,SUCCESS,1000,3792,3791,cp /home/lubuntu/test.csv /home/lubuntu/test_copy.csv 
+1485918018082 ,write,/home/lubuntu/test_copy.csv,,,,,,,,96,0,SUCCESS,1000,3792,3791,cp /home/lubuntu/test.csv /home/lubuntu/test_copy.csv 
