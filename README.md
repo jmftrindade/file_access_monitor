@@ -52,10 +52,10 @@ tail -f /tmp/file_accesses.log &
 ### Sample binary instrumentation
 Linux:
 ```
-LD_PRELOAD=./log_file_access.o ./write_test.sh
+LD_PRELOAD=./log_file_access.o ./test_workflows/copy_file_via_cp.sh
 ```
 
 Mac OS X:
 ```
-DYLD_FORCE_FLAT_NAMESPACE=1 DYLD_INSERT_LIBRARIES=./log_file_access.dylib ./write_test.sh
+DYLD_FORCE_FLAT_NAMESPACE=1 DYLD_INSERT_LIBRARIES=./log_file_access.dylib ./test_workflows/copy_file_via_cp.sh
 ```
