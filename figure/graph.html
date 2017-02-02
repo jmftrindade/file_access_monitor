@@ -6,13 +6,13 @@
     </head>
     <body>
 
-    <div id="392570ea-1a7d-4a1f-a5d3-82f8175aef75"></div>
+    <div id="5db61740-89b7-4b92-85a8-1fcb0a7be461"></div>
 
     <script type="text/javascript">
-      var nodes = [{"title": "{'uid': 'cp-3792', 'name': 'cp', 'pid': 3792}", "group": "Job", "id": 35, "label": "cp-3792"}, {"title": "{'name': 'test2.csv'}", "group": "Dataset", "id": 34, "label": "test2.csv"}, {"title": "{'name': 'test1.csv'}", "group": "Dataset", "id": 33, "label": "test1.csv"}];
-      var edges = [{"to": 34, "from": 35, "label": "WRITES_TO"}, {"to": 35, "from": 33, "label": "IS_READ_BY"}];
+      var nodes = [{"title": "{'name': 'cp /home/lubuntu/test.csv /home/lubuntu/test_copy.csv ', 'uid': 'PID=3792,CLI=cp /home/lubuntu/test.csv /home/lubuntu/test_copy.csv ', 'pid': 3792}", "group": "Job", "id": 60, "label": "PID=3792,CLI=cp /home/lubuntu/test.csv /home/lubuntu/test_copy.csv "}, {"title": "{'name': '/home/lubuntu/test_copy.csv'}", "group": "Dataset", "id": 61, "label": "/home/lubuntu/test_copy.csv"}, {"title": "{'name': '/home/lubuntu/test.csv'}", "group": "Dataset", "id": 59, "label": "/home/lubuntu/test.csv"}];
+      var edges = [{"from": 60, "to": 61, "label": "WRITES_TO"}, {"from": 59, "to": 60, "label": "IS_READ_BY"}];
 
-      var container = document.getElementById("392570ea-1a7d-4a1f-a5d3-82f8175aef75");
+      var container = document.getElementById("5db61740-89b7-4b92-85a8-1fcb0a7be461");
 
       var data = {
         nodes: nodes,
