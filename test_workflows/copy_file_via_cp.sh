@@ -1,6 +1,6 @@
 #!/bin/bash
 
-src_file=cp_src.txt
-dst_file=cp_dst.txt
+src=cp_src.txt
+dst=cp_dst.txt
 
-cp $src > $dst
+cp $src $dst
