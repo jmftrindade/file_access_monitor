@@ -2,6 +2,7 @@ from IPython.display import IFrame
 import json
 import uuid
 
+
 def vis_network(nodes, edges, physics=False):
     html = """
     <html>
@@ -25,12 +26,21 @@ def vis_network(nodes, edges, physics=False):
       }};
 
       var options = {{
+          layout: {{
+              improvedLayout: false,
+              hierarchical: {{
+                  enabled: true,
+                  direction: 'LR',
+                  parentCentralization: false,
+                  sortMethod: 'directed'
+              }}
+          }},
           nodes: {{
               shape: 'dot',
               size: 25,
               font: {{
                   size: 14
-              }}
+              }},
           }},
           edges: {{
               font: {{
@@ -59,7 +69,8 @@ def vis_network(nodes, edges, physics=False):
 #    html = html.format(id=unique_id, nodes=json.dumps(nodes), edges=json.dumps(edges), physics=json.dumps(physics))
 #    filename = "figure/graph-{}.html".format(unique_id)
 
-    html = html.format(id=1, nodes=json.dumps(nodes), edges=json.dumps(edges), physics=json.dumps(physics))
+    html = html.format(id=1, nodes=json.dumps(
+        nodes), edges=json.dumps(edges), physics=json.dumps(physics))
     filename = "figure/graph.html"
 
     file = open(filename, "w")
@@ -67,6 +78,7 @@ def vis_network(nodes, edges, physics=False):
     file.close()
 
     return IFrame(filename, width="100%", height="400")
+
 
 def draw(graph, options, physics=False, limit=100):
     # The options argument should be a dictionary of node labels and property keys; it determines which property
@@ -95,8 +107,14 @@ def draw(graph, options, physics=False, limit=100):
         node_label = list(node.labels())[0]
         prop_key = options.get(node_label)
         vis_label = node.properties.get(prop_key, "")
+        # TODO: Here use abbreviated label instead of full label.
+        max_label_length = 15
+        abbr_vis_label = vis_label[:max_label_length] + \
+            '...' if len(vis_label) > max_label_length else vis_label
 
-        return {"id": id, "label": vis_label, "group": node_label, "title": repr(node.properties)}
+# return {"id": id, "label": abbr_vis_label, "group": node_label, "title":
+# repr(node.properties)}
+        return {"id": id, "label": abbr_vis_label, "group": node_label, "title": vis_label}
 
     for row in data:
         source_node = row[0]
@@ -116,6 +134,7 @@ def draw(graph, options, physics=False, limit=100):
             if target_info not in nodes:
                 nodes.append(target_info)
 
-            edges.append({"from": source_info["id"], "to": target_info["id"], "label": rel.type()})
+            edges.append({"from": source_info["id"], "to": target_info[
+                "id"], "label": rel.type(), "title": repr(rel.properties)})
 
     return vis_network(nodes, edges, physics=physics)

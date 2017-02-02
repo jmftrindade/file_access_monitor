@@ -9,8 +9,8 @@
     <div id="1"></div>
 
     <script type="text/javascript">
-      var nodes = [{"title": "{'pid': 10067, 'uid': 'PID=10067,CLI=cp cp_src.csv cp_dst.csv ', 'name': 'cp cp_src.csv cp_dst.csv '}", "label": "PID=10067,CLI=cp cp_src.csv cp_dst.csv ", "id": 87, "group": "Job"}, {"title": "{'name': '/home/lubuntu/src/file_access_monitor/test_workflows/cp_dst.csv'}", "label": "/home/lubuntu/src/file_access_monitor/test_workflows/cp_dst.csv", "id": 88, "group": "Dataset"}, {"title": "{'name': '/home/lubuntu/src/file_access_monitor/test_workflows/cat_dst.csv'}", "label": "/home/lubuntu/src/file_access_monitor/test_workflows/cat_dst.csv", "id": 94, "group": "Dataset"}, {"title": "{'name': '/home/lubuntu/src/file_access_monitor/test_workflows/cp_src.csv'}", "label": "/home/lubuntu/src/file_access_monitor/test_workflows/cp_src.csv", "id": 86, "group": "Dataset"}, {"title": "{'name': '/home/lubuntu/src/file_access_monitor/test_workflows/cat_src.csv'}", "label": "/home/lubuntu/src/file_access_monitor/test_workflows/cat_src.csv", "id": 89, "group": "Dataset"}, {"title": "{'pid': 10069, 'uid': 'PID=10069,CLI=cat cat_src.csv ', 'name': 'cat cat_src.csv '}", "label": "PID=10069,CLI=cat cat_src.csv ", "id": 93, "group": "Job"}];
-      var edges = [{"from": 87, "label": "WRITES_TO", "to": 88}, {"from": 86, "label": "IS_READ_BY", "to": 87}, {"from": 89, "label": "IS_READ_BY", "to": 93}, {"from": 93, "label": "WRITES_TO", "to": 94}];
+      var nodes = [{"group": "Job", "id": 147, "label": "PID=3792,CLI=cp...", "title": "PID=3792,CLI=cp /home/lubuntu/test.csv /home/lubuntu/test_copy.csv "}, {"group": "Dataset", "id": 148, "label": "/home/lubuntu/t...", "title": "/home/lubuntu/test_copy.csv"}, {"group": "Dataset", "id": 146, "label": "/home/lubuntu/t...", "title": "/home/lubuntu/test.csv"}];
+      var edges = [{"from": 147, "to": 148, "label": "WRITES_TO", "title": "{'timestamp': 1485918018082}"}, {"from": 146, "to": 147, "label": "IS_READ_BY", "title": "{'timestamp': 1485918018082}"}];
 
       var container = document.getElementById("1");
 
@@ -20,12 +20,21 @@
       };
 
       var options = {
+          layout: {
+              improvedLayout: false,
+              hierarchical: {
+                  enabled: true,
+                  direction: 'LR',
+                  parentCentralization: false,
+                  sortMethod: 'directed'
+              }
+          },
           nodes: {
               shape: 'dot',
               size: 25,
               font: {
                   size: 14
-              }
+              },
           },
           edges: {
               font: {
