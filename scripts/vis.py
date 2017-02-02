@@ -55,11 +55,12 @@ def vis_network(nodes, edges, physics=False):
     </html>
     """
 
-    unique_id = str(uuid.uuid4())
-    html = html.format(id=unique_id, nodes=json.dumps(nodes), edges=json.dumps(edges), physics=json.dumps(physics))
-
+#    unique_id = str(uuid.uuid4())
+#    html = html.format(id=unique_id, nodes=json.dumps(nodes), edges=json.dumps(edges), physics=json.dumps(physics))
 #    filename = "figure/graph-{}.html".format(unique_id)
-    filename = "figure/graph.html".format(unique_id)
+
+    html = html.format(id=1, nodes=json.dumps(nodes), edges=json.dumps(edges), physics=json.dumps(physics))
+    filename = "figure/graph.html"
 
     file = open(filename, "w")
     file.write(html)
