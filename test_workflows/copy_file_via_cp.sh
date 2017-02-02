@@ -1,6 +1,6 @@
 #!/bin/bash
 
-src=cp_src.txt
-dst=cp_dst.txt
+src=cp_src.csv
+dst=cp_dst.csv
 
 cp $src $dst

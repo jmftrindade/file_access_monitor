@@ -1,6 +1,6 @@
 #!/bin/bash
 
-src=cat_src.txt
-dst=cat_dst.txt
+src=cat_src.csv
+dst=cat_dst.csv
 
 cat $src > $dst
