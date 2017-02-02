@@ -1,0 +1,11 @@
+Time,Action,Path,Mode,From,To,To UID,To GID,To User Name,To Group Name,Size,Offset,Result,UID,PID,PPID,Command Line
+1485996058896 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/cp_dst.csv,,,,,,,,,,SUCCESS,1000,10067,10066,cp cp_src.csv cp_dst.csv 
+1485996058897 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/cp_src.csv,,,,,,,,4096,0,SUCCESS,1000,10067,10066,cp cp_src.csv cp_dst.csv 
+1485996058897 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/cp_src.csv,,,,,,,,4,0,SUCCESS,1000,10067,10066,cp cp_src.csv cp_dst.csv 
+1485996058897 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/cp_dst.csv,,,,,,,,4,0,SUCCESS,1000,10067,10066,cp cp_src.csv cp_dst.csv 
+1485996058897 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/cp_dst.csv,,,,,,,,4,0,SUCCESS,1000,10067,10066,cp cp_src.csv cp_dst.csv 
+1485996061120 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/cat_dst.csv,,,,,,,,,,SUCCESS,1000,10069,10068,/bin/bash ./copy_file_via_cat.sh 
+1485996061121 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/cat_src.csv,,,,,,,,4096,0,SUCCESS,1000,10069,10068,cat cat_src.csv 
+1485996061122 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/cat_src.csv,,,,,,,,4,0,SUCCESS,1000,10069,10068,cat cat_src.csv 
+1485996061122 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/cat_dst.csv,,,,,,,,4,0,SUCCESS,1000,10069,10068,cat cat_src.csv 
+1485996061122 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/cat_dst.csv,,,,,,,,4,0,SUCCESS,1000,10069,10068,cat cat_src.csv 
