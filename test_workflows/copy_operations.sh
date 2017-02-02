@@ -1,23 +1,17 @@
 #!/bin/sh
 
-in1=in1.csv
-in2=in2.csv
-out1=out1.csv
+run_copy_cmd() {
+  local cmd="$1"
+  local args="$2"
 
-echo "Copying a file via UNIX cp:"
-echo "cp $in1 $out1"
-cp $in1 $out1
-sleep 1
+  echo "Copying files via $cmd:"
+  echo "$cmd $args"
+  eval $cmd $args
+  sleep 1
+  echo ""
+}
 
-echo ""
-echo "Copying a file via UNIX cat:"
-echo "cat $in1 > $out1"
-cat $in1 > $out1
-sleep 1
-
-echo ""
-echo "Copying multiple files into a single one via python script:"
-echo "python concat_csvs.py $in1 $in2"
-python concat_csvs.py $in1 $in2
-sleep 1
-
+run_copy_cmd "cp" "in1.csv out1.csv"
+run_copy_cmd "cat" "in1.csv > out2.csv"
+run_copy_cmd "python" "concat_csvs.py in1.csv in2.csv out3.csv"
+run_copy_cmd "cat" "out3.csv > out4.csv"
