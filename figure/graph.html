@@ -3,14 +3,17 @@
     <head>
       <script type="text/javascript" src="../lib/vis/dist/vis.js"></script>
       <link href="../lib/vis/dist/vis.css" rel="stylesheet" type="text/css">
-    </head>
-    <body>
 
-    <div id="1"></div>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <script type="text/javascript">
-      var nodes = [{"group": "Dataset", "id": 151, "label": "/home/lubuntu/s...", "title": "/home/lubuntu/src/file_access_monitor/test_workflows/cp_dst.csv"}, {"group": "Dataset", "id": 152, "label": "/home/lubuntu/s...", "title": "/home/lubuntu/src/file_access_monitor/test_workflows/cat_src.csv"}, {"group": "Job", "id": 153, "label": "PID=10069,CLI=c...", "title": "PID=10069,CLI=cat cat_src.csv "}, {"group": "Job", "id": 150, "label": "PID=10067,CLI=c...", "title": "PID=10067,CLI=cp cp_src.csv cp_dst.csv "}, {"group": "Dataset", "id": 154, "label": "/home/lubuntu/s...", "title": "/home/lubuntu/src/file_access_monitor/test_workflows/cat_dst.csv"}, {"group": "Dataset", "id": 149, "label": "/home/lubuntu/s...", "title": "/home/lubuntu/src/file_access_monitor/test_workflows/cp_src.csv"}];
-      var edges = [{"from": 152, "to": 153, "label": "IS_READ_BY", "title": "{'timestamp': 1485996061122}"}, {"from": 150, "to": 151, "label": "WRITES_TO", "title": "{'timestamp': 1485996058897}"}, {"from": 149, "to": 150, "label": "IS_READ_BY", "title": "{'timestamp': 1485996058897}"}, {"from": 153, "to": 154, "label": "WRITES_TO", "title": "{'timestamp': 1485996061122}"}];
+    function onClickHandler(){
+      console.log('click detected!');
+    }
+
+    function draw() {
+      var nodes = [{"group": "Dataset", "id": 550, "title": "/home/lubuntu/src/file_access_monitor/test_workflows/out4.csv", "label": "/home/lubuntu/s..."}, {"group": "Dataset", "id": 541, "title": "/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv", "label": "/home/lubuntu/s..."}, {"group": "Job", "id": 546, "title": "PID=17114,CLI=python concat_csvs.py in1.csv in2.csv out3.csv ", "label": "PID=17114,CLI=p..."}, {"group": "Job", "id": 544, "title": "PID=17112,CLI=cat in1.csv ", "label": "PID=17112,CLI=c..."}, {"group": "Job", "id": 542, "title": "PID=17110,CLI=cp in1.csv out1.csv ", "label": "PID=17110,CLI=c..."}, {"group": "Dataset", "id": 548, "title": "/home/lubuntu/src/file_access_monitor/test_workflows/out3.csv", "label": "/home/lubuntu/s..."}, {"group": "Job", "id": 549, "title": "PID=17121,CLI=cat out3.csv ", "label": "PID=17121,CLI=c..."}, {"group": "Dataset", "id": 545, "title": "/home/lubuntu/src/file_access_monitor/test_workflows/out2.csv", "label": "/home/lubuntu/s..."}, {"group": "Dataset", "id": 543, "title": "/home/lubuntu/src/file_access_monitor/test_workflows/out1.csv", "label": "/home/lubuntu/s..."}, {"group": "Dataset", "id": 547, "title": "/home/lubuntu/src/file_access_monitor/test_workflows/in2.csv", "label": "/home/lubuntu/s..."}];
+      var edges = [{"title": "IS_READ_BY: {'timestamp': 1486075410214}", "from": 541, "to": 546, "label": ""}, {"title": "IS_READ_BY: {'timestamp': 1486075408892}", "from": 541, "to": 544, "label": ""}, {"title": "IS_READ_BY: {'timestamp': 1486075407888}", "from": 541, "to": 542, "label": ""}, {"title": "WRITES_TO: {'timestamp': 1486075410219}", "from": 546, "to": 548, "label": ""}, {"title": "WRITES_TO: {'timestamp': 1486075411283}", "from": 549, "to": 550, "label": ""}, {"title": "WRITES_TO: {'timestamp': 1486075408892}", "from": 544, "to": 545, "label": ""}, {"title": "IS_READ_BY: {'timestamp': 1486075410215}", "from": 547, "to": 546, "label": ""}, {"title": "WRITES_TO: {'timestamp': 1486075407888}", "from": 542, "to": 543, "label": ""}, {"title": "IS_READ_BY: {'timestamp': 1486075411282}", "from": 548, "to": 549, "label": ""}];
 
       var container = document.getElementById("1");
 
@@ -25,16 +28,15 @@
               hierarchical: {
                   enabled: true,
                   direction: 'LR',
-                  parentCentralization: false,
                   sortMethod: 'directed'
               }
           },
           nodes: {
               shape: 'dot',
-              size: 25,
               font: {
                   size: 14
               },
+              size: 25
           },
           edges: {
               font: {
@@ -49,12 +51,43 @@
           },
           physics: {
               enabled: false
+          },
+          groups:{
+              'Job': {
+                  shape: 'icon',
+                  icon: {
+                      face: 'FontAwesome',
+                      code: '',
+                      size: 40,
+                      color: '#a815de'
+                  }
+              },
+              'Dataset': {
+                  shape: 'icon',
+                  icon: {
+                      face: 'FontAwesome',
+                      code: '',
+                      size: 40,
+                      color: '#f0a30a'
+                  }
+              }
           }
       };
 
       var network = new vis.Network(container, data, options);
 
+      network.once("afterDrawing", function() {
+        console.log('here from afterDrawing event!');
+        document.getElementById('1').click();
+      });
+    }
+
     </script>
+
+    </head>
+
+    <body onload="draw()">
+    <div id="1"></div>
     </body>
     </html>
     

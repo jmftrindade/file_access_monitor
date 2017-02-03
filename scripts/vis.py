@@ -9,12 +9,15 @@ def vis_network(nodes, edges, physics=False):
     <head>
       <script type="text/javascript" src="../lib/vis/dist/vis.js"></script>
       <link href="../lib/vis/dist/vis.css" rel="stylesheet" type="text/css">
-    </head>
-    <body>
 
-    <div id="{id}"></div>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <script type="text/javascript">
+    function onClickHandler(){{
+      console.log('click detected!');
+    }}
+
+    function draw() {{
       var nodes = {nodes};
       var edges = {edges};
 
@@ -31,16 +34,15 @@ def vis_network(nodes, edges, physics=False):
               hierarchical: {{
                   enabled: true,
                   direction: 'LR',
-                  parentCentralization: false,
                   sortMethod: 'directed'
               }}
           }},
           nodes: {{
               shape: 'dot',
-              size: 25,
               font: {{
                   size: 14
               }},
+              size: 25
           }},
           edges: {{
               font: {{
@@ -55,12 +57,43 @@ def vis_network(nodes, edges, physics=False):
           }},
           physics: {{
               enabled: {physics}
+          }},
+          groups:{{
+              'Job': {{
+                  shape: 'icon',
+                  icon: {{
+                      face: 'FontAwesome',
+                      code: '\uf085',
+                      size: 40,
+                      color: '#a815de'
+                  }}
+              }},
+              'Dataset': {{
+                  shape: 'icon',
+                  icon: {{
+                      face: 'FontAwesome',
+                      code: '\uf15c',
+                      size: 40,
+                      color: '#f0a30a'
+                  }}
+              }}
           }}
       }};
 
       var network = new vis.Network(container, data, options);
 
+      network.once("afterDrawing", function() {{
+        console.log('here from afterDrawing event!');
+        document.getElementById('{id}').click();
+      }});
+    }}
+
     </script>
+
+    </head>
+
+    <body onload="draw()">
+    <div id="{id}"></div>
     </body>
     </html>
     """
@@ -134,7 +167,10 @@ def draw(graph, options, physics=False, limit=100):
             if target_info not in nodes:
                 nodes.append(target_info)
 
+#            edges.append({"from": source_info["id"], "to": target_info[
+#                "id"], "label": rel.type(), "title": repr(rel.properties)})
+
             edges.append({"from": source_info["id"], "to": target_info[
-                "id"], "label": rel.type(), "title": repr(rel.properties)})
+                "id"], "label": "", "title": rel.type() + ': ' + repr(rel.properties)})
 
     return vis_network(nodes, edges, physics=physics)
