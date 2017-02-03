@@ -1,0 +1,25 @@
+Time,Action,Path,Mode,From,To,To UID,To GID,To User Name,To Group Name,Size,Offset,Result,UID,PID,PPID,Command Line
+1486158993103 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/out1.csv,,,,,,,,,,SUCCESS,1000,20266,20265,cp in1.csv out1.csv 
+1486158993104 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv,,,,,,,,4096,0,SUCCESS,1000,20266,20265,cp in1.csv out1.csv 
+1486158993104 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv,,,,,,,,14,0,SUCCESS,1000,20266,20265,cp in1.csv out1.csv 
+1486158993104 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/out1.csv,,,,,,,,14,0,SUCCESS,1000,20266,20265,cp in1.csv out1.csv 
+1486158993104 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/out1.csv,,,,,,,,14,0,SUCCESS,1000,20266,20265,cp in1.csv out1.csv 
+1486158994107 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/out2.csv,,,,,,,,,,SUCCESS,1000,20265,1760,/bin/sh ./copy_operations.sh 
+1486158994108 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv,,,,,,,,4096,0,SUCCESS,1000,20268,20265,cat in1.csv 
+1486158994108 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv,,,,,,,,14,0,SUCCESS,1000,20268,20265,cat in1.csv 
+1486158994108 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/out2.csv,,,,,,,,14,0,SUCCESS,1000,20268,20265,cat in1.csv 
+1486158994108 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/out2.csv,,,,,,,,14,0,SUCCESS,1000,20268,20265,cat in1.csv 
+1486158995415 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv,,,,,,,,4096,0,SUCCESS,1000,20270,20265,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1486158995415 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv,,,,,,,,14,0,SUCCESS,1000,20270,20265,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1486158995417 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/in2.csv,,,,,,,,4096,0,SUCCESS,1000,20270,20265,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1486158995417 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/in2.csv,,,,,,,,14,0,SUCCESS,1000,20270,20265,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1486158995418 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/out2.csv,,,,,,,,4096,0,SUCCESS,1000,20270,20265,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1486158995418 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/out2.csv,,,,,,,,14,0,SUCCESS,1000,20270,20265,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1486158995421 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/out3.csv,,,,,,,,,,SUCCESS,1000,20270,20265,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1486158995422 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/out3.csv,,,,,,,,22,0,SUCCESS,1000,20270,20265,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1486158995422 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/out3.csv,,,,,,,,22,0,SUCCESS,1000,20270,20265,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1486158996482 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/out4.csv,,,,,,,,,,SUCCESS,1000,20265,1760,/bin/sh ./copy_operations.sh 
+1486158996484 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/out3.csv,,,,,,,,4096,0,SUCCESS,1000,20277,20265,cat out3.csv 
+1486158996484 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/out3.csv,,,,,,,,22,0,SUCCESS,1000,20277,20265,cat out3.csv 
+1486158996484 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/out4.csv,,,,,,,,22,0,SUCCESS,1000,20277,20265,cat out3.csv 
+1486158996484 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/out4.csv,,,,,,,,22,0,SUCCESS,1000,20277,20265,cat out3.csv 
