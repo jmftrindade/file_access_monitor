@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is a sample configuration file for loggedfs. -->
+<!-- This file is not used by default, you need to use the -c option to use it. -->
+<loggedFS logEnabled="true" printProcessName="true">
+	<includes>
+		<!-- Log successful reads and writes to CSV files. -->
+		<include extension=".*\.csv" uid="*" action="read" retname="SUCCESS"/>
+		<include extension=".*\.csv" uid="*" action="write" retname="SUCCESS"/>
+		<!-- Log successful reads and writes to postgres files. -->
+		<!-- Doesn't seem to work, at least for pgbench. -->
+		<include extension=".*\_fsm" uid="*" action="read" retname="SUCCESS"/>
+		<include extension=".*\_vm" uid="*" action="write" retname="SUCCESS"/>
+	</includes>
+	<excludes>
+		<!-- Do not monitor loggedfs.csv output. -->
+		<exclude extension=".*loggedfs.*" uid="*" action="*" retname="*"/>
+	</excludes>
+</loggedFS>
