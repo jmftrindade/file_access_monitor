@@ -26,8 +26,11 @@ def add_dataset_node(graph, dataset):
 def add_read_relationship(graph, job, dataset, timestamp):
     dataset_node = add_dataset_node(graph, dataset)
     job_node = add_job_node(graph, job)
+
+    # Adding fake amount of bytes to each edge for PageRank.
     rel = Relationship(dataset_node, 'IS_READ_BY',
-                       job_node, timestamp=timestamp)
+                       job_node, timestamp=timestamp,
+                       data_bytes=1024)
     graph.create(rel)
 
 
@@ -36,8 +39,11 @@ def add_read_relationship(graph, job, dataset, timestamp):
 def add_write_relationship(graph, job, dataset, timestamp):
     dataset_node = add_dataset_node(graph, dataset)
     job_node = add_job_node(graph, job)
+
+    # Adding fake amount of bytes to each edge for PageRank.
     rel = Relationship(job_node, 'WRITES_TO',
-                       dataset_node, timestamp=timestamp)
+                       dataset_node, timestamp=timestamp,
+                       data_bytes=1024)
     graph.create(rel)
 
 
@@ -75,7 +81,7 @@ def reset_graph_schema(graph):
 
 def create_graph():
     # Log-in to Neo4j server.
-    authenticate('localhost:7474', 'neo4j', 'admin')
+    #authenticate('localhost:7474', 'neo4j', 'admin')
 
     # Create lineage graph.
     graph = Graph()
