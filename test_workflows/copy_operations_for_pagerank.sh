@@ -11,5 +11,9 @@ run_copy_cmd() {
   echo ""
 }
 
-run_copy_cmd "python" "concat_csvs.py in1.csv in2.csv out2.csv out3.csv"
-run_copy_cmd "python" "concat_csvs.py in1.csv in2.csv out2.csv out4.csv"
+run_copy_cmd "python" "concat_csvs.py in1.csv in2.csv in3.csv in4.csv out3.csv"
+run_copy_cmd "python" "concat_csvs.py in1.csv in2.csv in3.csv in4.csv out4.csv"
+run_copy_cmd "cp" "out3.csv out5.csv"
+run_copy_cmd "cp" "out4.csv out6.csv"
+run_copy_cmd "cp" "out5.csv out7.csv"
+run_copy_cmd "cp" "out7.csv out9.csv"
