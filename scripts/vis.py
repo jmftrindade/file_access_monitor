@@ -140,6 +140,9 @@ def draw(graph, options, physics=False, limit=100):
         node_label = list(node.labels())[0]
         prop_key = options.get(node_label)
         vis_label = node.properties.get(prop_key, "")
+        cpu_consumption = node.properties.get("cpu", None)
+        if cpu_consumption is not None:
+            vis_label += ", cpu=" + str(round(cpu_consumption, 2))
         # TODO: Here use abbreviated label instead of full label.
         max_label_length = 15
         abbr_vis_label = vis_label[:max_label_length] + \

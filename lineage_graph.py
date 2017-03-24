@@ -1,4 +1,5 @@
 import pandas as pd
+import random
 from py2neo import authenticate, Graph, Node, Relationship
 
 
@@ -6,10 +7,12 @@ def add_job_node(graph, job):
     # TODO: Use a hash instead, and store the original info in a KV store.
     pid = job['pid']
     name = job['name']
+    cpu = job['cpu']
     job_node = Node('Job', uid=('PID=' + str(pid) + ',CLI=' + name))
     graph.merge(job_node)
     job_node['name'] = name
     job_node['pid'] = pid
+    job_node['cpu'] = cpu
     graph.push(job_node)
     return job_node
 
@@ -27,6 +30,7 @@ def add_read_relationship(graph, job, dataset, timestamp):
     dataset_node = add_dataset_node(graph, dataset)
     job_node = add_job_node(graph, job)
 
+    # FIXME: Remove this!
     # Adding fake amount of bytes to each edge for PageRank.
     rel = Relationship(dataset_node, 'IS_READ_BY',
                        job_node, timestamp=timestamp,
@@ -62,7 +66,13 @@ def add_event_to_graph(graph, event):
         return
 
     # TODO: Process user either via UID or User Name
-    job = {'name': event['Command Line'], 'pid': event['PID']}
+    # FIXME: Remove this!
+    # Adding fake CPU consumption to each job.
+    job = {
+        'name': event['Command Line'],
+        'pid': event['PID'],
+        'cpu': random.uniform(50.0, 100.0)
+    }
     dataset = {'name': event['Path']}
     timestamp = event['Time']
     add_relationship(graph, job, dataset, timestamp, event['Action'])
