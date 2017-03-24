@@ -71,7 +71,7 @@ def add_event_to_graph(graph, event):
     job = {
         'name': event['Command Line'],
         'pid': event['PID'],
-        'cpu': 100.0
+        'cpu': random.uniform(50.0, 100.0)
     }
     dataset = {'name': event['Path']}
     timestamp = event['Time']
