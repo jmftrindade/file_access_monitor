@@ -1,19 +1,49 @@
 Time,Action,Path,Mode,From,To,To UID,To GID,To User Name,To Group Name,Size,Offset,Result,UID,PID,PPID,Command Line
-1490369977684 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv,,,,,,,,4096,0,SUCCESS,1000,3013,3012,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
-1490369977685 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv,,,,,,,,14,0,SUCCESS,1000,3013,3012,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
-1490369977689 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/in2.csv,,,,,,,,4096,0,SUCCESS,1000,3013,3012,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
-1490369977690 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/in2.csv,,,,,,,,14,0,SUCCESS,1000,3013,3012,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
-1490369977691 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/out2.csv,,,,,,,,4096,0,SUCCESS,1000,3013,3012,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
-1490369977692 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/out2.csv,,,,,,,,14,0,SUCCESS,1000,3013,3012,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
-1490369977696 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/out3.csv,,,,,,,,,,SUCCESS,1000,3013,3012,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
-1490369977696 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/out3.csv,,,,,,,,22,0,SUCCESS,1000,3013,3012,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
-1490369977696 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/out3.csv,,,,,,,,22,0,SUCCESS,1000,3013,3012,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
-1490369979040 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv,,,,,,,,4096,0,SUCCESS,1000,3020,3012,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
-1490369979040 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv,,,,,,,,14,0,SUCCESS,1000,3020,3012,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
-1490369979042 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/in2.csv,,,,,,,,4096,0,SUCCESS,1000,3020,3012,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
-1490369979042 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/in2.csv,,,,,,,,14,0,SUCCESS,1000,3020,3012,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
-1490369979043 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/out2.csv,,,,,,,,4096,0,SUCCESS,1000,3020,3012,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
-1490369979044 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/out2.csv,,,,,,,,14,0,SUCCESS,1000,3020,3012,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
-1490369979049 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/out4.csv,,,,,,,,,,SUCCESS,1000,3020,3012,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
-1490369979049 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/out4.csv,,,,,,,,22,0,SUCCESS,1000,3020,3012,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
-1490369979049 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/out4.csv,,,,,,,,22,0,SUCCESS,1000,3020,3012,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
+1490380654673 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv,,,,,,,,4096,0,SUCCESS,1000,3495,3494,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1490380654673 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv,,,,,,,,14,0,SUCCESS,1000,3495,3494,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1490380654675 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/in2.csv,,,,,,,,4096,0,SUCCESS,1000,3495,3494,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1490380654675 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/in2.csv,,,,,,,,14,0,SUCCESS,1000,3495,3494,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1490380654676 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/out2.csv,,,,,,,,4096,0,SUCCESS,1000,3495,3494,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1490380654676 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/out2.csv,,,,,,,,14,0,SUCCESS,1000,3495,3494,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1490380654679 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/out3.csv,,,,,,,,,,SUCCESS,1000,3495,3494,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1490380654680 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/out3.csv,,,,,,,,22,0,SUCCESS,1000,3495,3494,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1490380654680 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/out3.csv,,,,,,,,22,0,SUCCESS,1000,3495,3494,python concat_csvs.py in1.csv in2.csv out2.csv out3.csv 
+1490380656058 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv,,,,,,,,4096,0,SUCCESS,1000,3502,3494,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
+1490380656058 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/in1.csv,,,,,,,,14,0,SUCCESS,1000,3502,3494,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
+1490380656061 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/in2.csv,,,,,,,,4096,0,SUCCESS,1000,3502,3494,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
+1490380656061 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/in2.csv,,,,,,,,14,0,SUCCESS,1000,3502,3494,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
+1490380656063 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/out2.csv,,,,,,,,4096,0,SUCCESS,1000,3502,3494,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
+1490380656063 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/out2.csv,,,,,,,,14,0,SUCCESS,1000,3502,3494,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
+1490380656065 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/out4.csv,,,,,,,,,,SUCCESS,1000,3502,3494,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
+1490380656066 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/out4.csv,,,,,,,,22,0,SUCCESS,1000,3502,3494,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
+1490380656066 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/out4.csv,,,,,,,,22,0,SUCCESS,1000,3502,3494,python concat_csvs.py in1.csv in2.csv out2.csv out4.csv 
+1490380657121 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/out5.csv,,,,,,,,,,SUCCESS,1000,3509,3494,cp out3.csv out5.csv 
+1490380657121 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/out3.csv,,,,,,,,4096,0,SUCCESS,1000,3509,3494,cp out3.csv out5.csv 
+1490380657121 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/out3.csv,,,,,,,,22,0,SUCCESS,1000,3509,3494,cp out3.csv out5.csv 
+1490380657122 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/out5.csv,,,,,,,,22,0,SUCCESS,1000,3509,3494,cp out3.csv out5.csv 
+1490380657122 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/out5.csv,,,,,,,,22,0,SUCCESS,1000,3509,3494,cp out3.csv out5.csv 
+1490380658127 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/out6.csv,,,,,,,,,,SUCCESS,1000,3511,3494,cp out4.csv out6.csv 
+1490380658128 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/out4.csv,,,,,,,,4096,0,SUCCESS,1000,3511,3494,cp out4.csv out6.csv 
+1490380658128 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/out4.csv,,,,,,,,22,0,SUCCESS,1000,3511,3494,cp out4.csv out6.csv 
+1490380658128 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/out6.csv,,,,,,,,22,0,SUCCESS,1000,3511,3494,cp out4.csv out6.csv 
+1490380658128 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/out6.csv,,,,,,,,22,0,SUCCESS,1000,3511,3494,cp out4.csv out6.csv 
+1490380659132 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/out7.csv,,,,,,,,,,SUCCESS,1000,3513,3494,cp out5.csv out7.csv 
+1490380659133 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/out5.csv,,,,,,,,4096,0,SUCCESS,1000,3513,3494,cp out5.csv out7.csv 
+1490380659133 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/out5.csv,,,,,,,,22,0,SUCCESS,1000,3513,3494,cp out5.csv out7.csv 
+1490380659133 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/out7.csv,,,,,,,,22,0,SUCCESS,1000,3513,3494,cp out5.csv out7.csv 
+1490380659133 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/out7.csv,,,,,,,,22,0,SUCCESS,1000,3513,3494,cp out5.csv out7.csv 
+1490380660137 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/out8.csv,,,,,,,,,,SUCCESS,1000,3515,3494,cp out6.csv out8.csv 
+1490380660137 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/out6.csv,,,,,,,,4096,0,SUCCESS,1000,3515,3494,cp out6.csv out8.csv 
+1490380660137 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/out6.csv,,,,,,,,22,0,SUCCESS,1000,3515,3494,cp out6.csv out8.csv 
+1490380660137 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/out8.csv,,,,,,,,22,0,SUCCESS,1000,3515,3494,cp out6.csv out8.csv 
+1490380660137 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/out8.csv,,,,,,,,22,0,SUCCESS,1000,3515,3494,cp out6.csv out8.csv 
+1490380661142 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/out9.csv,,,,,,,,,,SUCCESS,1000,3517,3494,cp out7.csv out9.csv 
+1490380661143 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/out7.csv,,,,,,,,4096,0,SUCCESS,1000,3517,3494,cp out7.csv out9.csv 
+1490380661143 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/out7.csv,,,,,,,,22,0,SUCCESS,1000,3517,3494,cp out7.csv out9.csv 
+1490380661143 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/out9.csv,,,,,,,,22,0,SUCCESS,1000,3517,3494,cp out7.csv out9.csv 
+1490380661143 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/out9.csv,,,,,,,,22,0,SUCCESS,1000,3517,3494,cp out7.csv out9.csv 
+1490380662150 ,open-writeonly,/home/lubuntu/src/file_access_monitor/test_workflows/out10.csv,,,,,,,,,,SUCCESS,1000,3519,3494,cp out8.csv out10.csv 
+1490380662150 ,read-request,/home/lubuntu/src/file_access_monitor/test_workflows/out8.csv,,,,,,,,4096,0,SUCCESS,1000,3519,3494,cp out8.csv out10.csv 
+1490380662150 ,read,/home/lubuntu/src/file_access_monitor/test_workflows/out8.csv,,,,,,,,22,0,SUCCESS,1000,3519,3494,cp out8.csv out10.csv 
+1490380662150 ,write-request,/home/lubuntu/src/file_access_monitor/test_workflows/out10.csv,,,,,,,,22,0,SUCCESS,1000,3519,3494,cp out8.csv out10.csv 
+1490380662150 ,write,/home/lubuntu/src/file_access_monitor/test_workflows/out10.csv,,,,,,,,22,0,SUCCESS,1000,3519,3494,cp out8.csv out10.csv 
