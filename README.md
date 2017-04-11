@@ -59,3 +59,9 @@ Mac OS X:
 ```
 DYLD_FORCE_FLAT_NAMESPACE=1 DYLD_INSERT_LIBRARIES=./log_file_access.dylib ./test_workflows/copy_file_via_cp.sh
 ```
+
+# To Load the notebook with SNAP temporal data set.
+```
+PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark --packages graphframes:graphframes:0.4.0-spark2.0-s_2.11
+```
+
