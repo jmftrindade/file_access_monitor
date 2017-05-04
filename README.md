@@ -30,6 +30,11 @@ sudo umount -l ~
 cp /var/tmp/$USER-home-fs.log loggedfs_events.log
 ```
 
+# To Load the notebook with SNAP temporal data set.
+```
+PYSPARK_PYTHON=python3 PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark --packages graphframes:graphframes:0.4.0-spark2.0-s_2.11
+```
+
 # DEPRECATED:
 
 Started out with a dynamic instrumentation module, which worked fine with (f)open and (f)close events, but for some reason (f)read and (f)write are not getting intercepted.  Abandoned this in favor of custom fork of loggedfs FUSE lib.
@@ -59,9 +64,3 @@ Mac OS X:
 ```
 DYLD_FORCE_FLAT_NAMESPACE=1 DYLD_INSERT_LIBRARIES=./log_file_access.dylib ./test_workflows/copy_file_via_cp.sh
 ```
-
-# To Load the notebook with SNAP temporal data set.
-```
-PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark --packages graphframes:graphframes:0.4.0-spark2.0-s_2.11
-```
-
