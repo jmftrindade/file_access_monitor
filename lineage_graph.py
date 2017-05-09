@@ -91,6 +91,8 @@ def reset_graph_schema(graph):
 
 def create_graph():
     # Log-in to Neo4j server.
+    # Update: No need to do this anymore, now that I've removed authn reqmt
+    # from the server.
     #authenticate('localhost:7474', 'neo4j', 'admin')
 
     # Create lineage graph.
