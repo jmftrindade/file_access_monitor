@@ -1,3 +1,7 @@
+# Spark on Python notebook
+metastore_db/
+derby.log
+
 # Python: Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -8,7 +8,7 @@ def main():
       KNAPSACK_MULTIDIMENSION_BRANCH_AND_BOUND_SOLVER,
       'test')
 
-  # These are the update rates per hour of each query.
+  # These are the read rates per hour of each query.
   values = [360, 83, 59, 130, 431, 67, 230, 52, 93,
             125, 670, 892, 600, 38, 48, 147, 78, 256,
             63, 17, 120, 164, 432, 35, 92, 110, 22,
@@ -36,7 +36,7 @@ def main():
   total_weight = sum(packed_weights)
   print("Selected views: ", packed_items)
   print("Memory footprints: ", packed_weights)
-  print("Total value (sum of update rates): ", computed_value)
+  print("Total value (sum of view rates): ", computed_value)
   print("Total memory footprint: ", total_weight, "MB")
 
 
