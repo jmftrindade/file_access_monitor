@@ -3,6 +3,10 @@
 # e.g., lineage_edges_20000.csv with cosmos events
 file=$1
 
+perl -pi -e 's/\t/,/g' $file
+perl -pi -e 's/Input/read/g' $file
+perl -pi -e 's/Output/write/g' $file
+
 cat $file | cut -d, -f1-3 > $file.first_columns
 
 echo "StartTime" > $file.fourth_column
