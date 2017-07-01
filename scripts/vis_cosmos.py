@@ -30,13 +30,13 @@ def vis_network(nodes, edges, physics=False):
 
       var options = {{
           layout: {{
-              improvedLayout: false,
+              improvedLayout: true,
               hierarchical: {{
                   enabled: true,
                   blockShifting: false,
                   levelSeparation: 400,
                   nodeSpacing: 300,
-                  direction: 'LR',
+                  direction: 'UD',
                   sortMethod: 'directed'
               }}
           }},

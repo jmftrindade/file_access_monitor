@@ -16,3 +16,5 @@ echo "EndTime" > $file.fifth_column
 cat $file | cut -d, -f5 | xargs -I {} date -j -f "%m/%d/%Y %I:%M:%S %p%n" "+%s00" {} >> $file.fifth_column
 
 paste -d',' $file.first_columns $file.fourth_column $file.fifth_column > $file.with_tstamps.csv
+
+echo "Remember to mv $file.with_stamps.csv file to $file if it checks out."
